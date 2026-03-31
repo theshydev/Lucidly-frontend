@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hero-bg {
+  background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 100%);
+  min-height: 70vh;
+}
+
+.dark .hero-bg {
+  background: #111827;
+}
+
+.card-shadow {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
