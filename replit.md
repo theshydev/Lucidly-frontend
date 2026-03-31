@@ -5,7 +5,8 @@ Lucidly is a React-based mental wellness web application that helps users track 
 
 ## Architecture
 - **Frontend:** React 18 with Vite 7
-- **Styling:** Tailwind CSS v3 (PostCSS build — no CDN)
+- **Styling:** Tailwind CSS v3 (PostCSS build — no CDN), dark-first ("Warm Elevated" design)
+- **Icons:** lucide-react
 - **Charts:** Recharts (LineChart for 7-day mood trend)
 - **Storage:** Browser localStorage
 - **Package Manager:** npm (ESM — `"type": "module"`)
