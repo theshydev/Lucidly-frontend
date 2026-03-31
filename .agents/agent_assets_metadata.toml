@@ -1,0 +1,14 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "1dt9NddmRAosyZJ9eoKtO"
+uri = "file://artifacts/mockup-sandbox/public/images/lucidly-hero-a.png"
+type = "image"
+title = "Serene abstract gradient shapes"
+
+[[generated]]
+id = "Z0_lbRpGPtc7AU6mitqCi"
+uri = "file://artifacts/mockup-sandbox/public/images/lucidly-hero-b.png"
+type = "image"
+title = "Serene abstract deep blue purple moonlight"
