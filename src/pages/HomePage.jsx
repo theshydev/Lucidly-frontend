@@ -14,7 +14,7 @@ export default function HomePage({ user, onNavigate, onAuth }) {
 
         <div className="editorial-hero-title">
           <p className="editorial-kicker"><Sparkles size={13} /> a quieter place on the internet</p>
-          <h1>GET TO<br /><em>KNOW</em> YOURSELF.</h1>
+          <h1 style={{ fontSize: 'clamp(64px, 8vw, 132px)', maxWidth: '100%' }}>GET TO<br /><em>KNOW</em> YOURSELF.</h1>
           <div className="editorial-hero-copy">
             <p>Lucidly turns tiny moments into a living archive of how you feel, what matters, and what keeps returning.</p>
             <div className="editorial-hero-actions">
