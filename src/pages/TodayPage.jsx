@@ -31,7 +31,7 @@ export default function TodayPage({ authFetch }) {
       const checkinRes = await authFetch('/api/checkins', { method: 'POST', body: JSON.stringify({ feeling, energy, stressors, score: checkin.score, keywords: checkin.keywords, explanation: checkin.explanation }) });
       if (!checkinRes.ok) throw new Error('Could not save your check-in.');
       setResult(checkin);
-      setMessage('Saved. Future-you can look back at this.');
+      setMessage('Filed. Future-you can look back at this.');
     } catch (error) {
       setMessage(error.message || 'Something went wrong.');
     } finally {
@@ -41,8 +41,11 @@ export default function TodayPage({ authFetch }) {
 
   return (
     <div className="lucidly-page lucidly-narrow-page">
-      <div className="lucidly-page-kicker"><Sparkles size={14} /> TODAY / 01</div>
-      <div className="lucidly-page-title"><h1>What's the vibe?</h1><p>Pick the closest answer. It does not have to be accurate.</p></div>
+      <div className="lucidly-page-kicker"><Sparkles size={14} /> TODAY / FIELD NOTE 01</div>
+      <div className="lucidly-page-title">
+        <h1>How does today<br /><em>feel from the inside?</em></h1>
+        <p>Pick the closest answer. It doesn't have to be accurate. This is a snapshot, not a verdict.</p>
+      </div>
 
       <section className="lucidly-mood-picker">
         {moods.map((item) => (
@@ -53,14 +56,14 @@ export default function TodayPage({ authFetch }) {
       </section>
 
       <section className="lucidly-form-card">
-        <label>what's going on in your head?</label>
+        <label>01 / what is taking up space?</label>
         <textarea value={feeling} onChange={(e) => setFeeling(e.target.value)} placeholder="one sentence is enough..." rows={3} />
-        <label>how's your energy?</label>
+        <label>02 / where is your energy?</label>
         <textarea value={energy} onChange={(e) => setEnergy(e.target.value)} placeholder="wired, sleepy, locked in, empty..." rows={2} />
-        <label>anything taking up too much brain space?</label>
-        <textarea value={stressors} onChange={(e) => setStressors(e.target.value)} placeholder="optional. you can skip this." rows={2} />
+        <label>03 / anything you want to leave here?</label>
+        <textarea value={stressors} onChange={(e) => setStressors(e.target.value)} placeholder="optional. you can leave this blank." rows={2} />
         <button className="lucidly-primary-button lucidly-full-button" onClick={submit} disabled={saving}>
-          {saving ? 'saving...' : <>Save today's vibe <ArrowRight size={17} /></>}
+          {saving ? 'filing...' : <>File today's note <ArrowRight size={17} /></>}
         </button>
         {message && <p className="lucidly-form-message">{message}</p>}
       </section>
@@ -68,9 +71,9 @@ export default function TodayPage({ authFetch }) {
       {result && (
         <section className="lucidly-result-card">
           <div className="lucidly-result-score"><span>reflection signal</span><strong>{result.score}</strong><small>/ 100</small></div>
-          <div><span className="lucidly-result-label">what this might mean</span><h2>{result.title}</h2><p>{result.explanation}</p></div>
+          <div><span className="lucidly-result-label">a small interpretation</span><h2>{result.title}</h2><p>{result.explanation}</p></div>
           <div className="lucidly-result-list">{result.recommendations.map((item) => <div key={item}><Check size={15} /> {item}</div>)}</div>
-          <p className="lucidly-disclaimer">This is a reflection aid, not a medical or mental-health diagnosis.</p>
+          <p className="lucidly-disclaimer">A reflection aid, not a medical or mental-health diagnosis.</p>
         </section>
       )}
     </div>
