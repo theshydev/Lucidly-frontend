@@ -32,7 +32,13 @@ function AppContent() {
   if (loading) {
     return (
       <div className="lucidly-loading">
-        <img className="lucidly-loading-logo" src="/images/lucidly-hero-a.png" alt="Lucidly" draggable="false" />
+        <img
+          className="lucidly-loading-logo"
+          src="/images/lucidly-hero-a.png"
+          alt="Lucidly"
+          draggable="false"
+          style={{ width: 150, height: 150, objectFit: 'contain', display: 'block' }}
+        />
         <span>getting your corner ready...</span>
       </div>
     );
