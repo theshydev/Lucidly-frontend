@@ -30,7 +30,12 @@ function AppContent() {
   };
 
   if (loading) {
-    return <div className="lucidly-loading"><div className="lucidly-loading-mark">✦</div><span>getting your corner ready...</span></div>;
+    return (
+      <div className="lucidly-loading">
+        <img className="lucidly-loading-logo" src="/images/lucidly-hero-a.png" alt="Lucidly" draggable="false" />
+        <span>getting your corner ready...</span>
+      </div>
+    );
   }
 
   return (
