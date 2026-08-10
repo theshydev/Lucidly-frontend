@@ -10,6 +10,13 @@ const navItems = [
   { id: 'profile', label: 'Profile', icon: User },
 ];
 
+const logoStyle = {
+  width: 29,
+  height: 29,
+  objectFit: 'contain',
+  display: 'block',
+};
+
 export default function AppShell({ page, onNavigate, dark, onToggleDark, children }) {
   const { user, logout } = useAuth();
   const [menuOpen, setMenuOpen] = React.useState(false);
@@ -23,7 +30,12 @@ export default function AppShell({ page, onNavigate, dark, onToggleDark, childre
     <div className={`lucidly-app ${dark ? 'lucidly-dark' : 'lucidly-light'}`}>
       <header className="lucidly-topbar">
         <button className="lucidly-brand" onClick={() => navigate('home')} aria-label="Go home">
-          <span className="lucidly-brand-mark"><Sparkles size={17} /></span>
+          <img
+            src={dark ? '/images/lucidly-hero-a.png' : '/images/lucidly-hero-b.png'}
+            alt=""
+            style={logoStyle}
+            draggable="false"
+          />
           <span>lucidly</span>
         </button>
 
