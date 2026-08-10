@@ -13,7 +13,7 @@ const app = express();
 const PORT = process.env.API_PORT || 3001;
 
 app.use(cors({ origin: true, credentials: true }));
-app.use(express.json());
+app.use(express.json({ limit: '1mb' }));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/journal', journalRoutes);
@@ -25,7 +25,7 @@ app.get('/api/health', (_, res) => res.json({ ok: true }));
 const distPath = join(__dirname, '..', 'dist');
 if (fs.existsSync(distPath)) {
   app.use(express.static(distPath));
-  app.get('*', (_, res) => res.sendFile(join(distPath, 'index.html')));
+  app.get('/{*splat}', (_, res) => res.sendFile(join(distPath, 'index.html')));
 }
 
 app.listen(PORT, '0.0.0.0', () => console.log(`API server running on port ${PORT}`));
